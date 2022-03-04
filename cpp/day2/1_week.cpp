@@ -2,7 +2,7 @@
 using namespace std;
 int main(){
 int day;
-	cout << "Enter day number: ";
+	cout << "Input week number: ";
 	cin >> day;
 
 switch (day) {
