@@ -1,14 +1,19 @@
-#include <iostream>
-#include <bitset>
-using namespace std;
-bitset<8> toBinary( int n ){
-	return bitset<8>(n);
-}
+ #include <iostream>  
+    using namespace std;  
+    int main()  
+    {  
+    int a[1000], n, i;    
+    cout<<"Enter the number to convert: ";    
+    cin>>n;    
+    for(i=0; n>0; i++)    
+    {    
+    a[i]=n%2;    
+    n= n/2;  
+    }    
+    cout<<"Binary of the given number= ";    
+    for(i=i-1 ;i>=0 ;i--)    
+    {    
+    cout<<a[i];    
+    }    
+    }  
 
-
-int main(){
-	int n = 20;
-	cout << "The binary representation of " << n << " is " << toBinary(n) << endl;
-
-return 0;
-}
