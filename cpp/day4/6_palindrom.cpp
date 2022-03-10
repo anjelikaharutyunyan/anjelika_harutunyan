@@ -1,28 +1,23 @@
 #include <iostream>
-#include <bits/stdc++.h>
 using namespace std;
-
-string isPalindrome(string S)
-{
-
-	string P = S;
-	reverse(P.begin(), P.end());
-
-	if (S == P) {
-		return "Yes";
-	}
-	else {
-
-		return "No";
-	}
-}
-
-
+ 
 int main()
 {
-	string S = "ABCDvbCBA";
-	cout << isPalindrome(S) << endl;
-
-	return 0;
+    string str, rev="";
+         
+    cout<<"Enter a string: ";
+    cin >> str;
+    
+    for(int i = str.length()-1; i >= 0; i--){
+        if(str[i] >= 65 && str[i] <= 90) 
+            str[i] = str[i]+32;
+        	rev += str[i];
+    }
+    
+    if(rev == str)
+        cout << "Palindrome";
+    else
+        cout << "Not Palindrome";
+        
+    return 0;
 }
-
