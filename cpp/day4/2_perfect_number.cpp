@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int perfect_number (int number){
+void  perfect_number (int number){
 int sum = 0;
 	for(int i = 1 ; i < number ; i++)
 	{
@@ -19,10 +19,9 @@ int sum = 0;
 	{
 		cout << number << " is Not a Perfect Number";
 	}
-return 0;
 }
 int main()
 {
-	perfect_number(4);
+	perfect_number(6);
 return 0;
 }
