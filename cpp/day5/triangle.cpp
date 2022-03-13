@@ -1,6 +1,5 @@
 #include <iostream>
 #include <time.h>
-#include <stdlib.h>
 using namespace std;
 
 int main()
@@ -59,13 +58,13 @@ int main()
             }
         }
   
-          cout << " sum1 = " << sum1 << endl;
-          cout << " sum2 = " << sum2 << endl;
-          cout << " sum3 = " << sum3 << endl;
-          cout << " sum4 = " << sum4 << endl;
-          cout << " sum5 = " << sum5 << endl;
-          cout << " sum6 = " << sum6 << endl;
-          cout << " sum7 = " << sum7 << endl;
-          cout << " sum8 = " << sum8 << endl;
+          cout << " Top left triangle size = " << sum1 << endl;
+          cout << " Bottom right triangle size  = " << sum2 << endl;
+          cout << " Bottom left triangle size  = " << sum3 << endl;
+          cout << " Top right triangle size = " << sum4 << endl;
+          cout << " Top center triangle size = " << sum5 << endl;
+          cout << " Left center triangle size = " << sum6 << endl;
+          cout << " Bottom center triangle size = " << sum7 << endl;
+          cout << " Right center triangle size = " << sum8 << endl;
     return 0;
 }
