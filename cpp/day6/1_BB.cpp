@@ -4,9 +4,9 @@ using namespace std;
 
 int main()
 {
-    const char *str = "BBuble BBIG bbug blue BomB BBib";
+     string str = "BBiig BBuble BBIG BBug BBin BB BBuble";
     int count = 0, B = 0;
-    for (int i = 0; str[i] != strlen(str) ; i++){
+    for (int i = 0; i <  str.length() ; i++){
         if ( str[i] == 'B'){
                count++;
               
