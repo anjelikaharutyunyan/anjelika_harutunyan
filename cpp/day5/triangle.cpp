@@ -9,7 +9,7 @@ int main()
     
    const int n = 3;
    int arr[n][n];
-   int sum4 = 0, sum1 = 0, sum2 = 0, sum3 = 0, sum5=0, sum6=0, sum7=0,sum8=0;
+   int sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0, sum5=0, sum6=0, sum7=0,sum8=0;
    
    for(int i = 0; i < n; i++){
         
