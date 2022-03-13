@@ -4,10 +4,11 @@
 #include <math.h>
 using namespace std;
 int main(){
-int arr[10];
+int arr[n];
+const int = 10;
 int j = 0, number = 0;
 int a, b;
-	for(int i = 0; j != 10; i++){
+	for(int i = 0; j != n; i++){
 		a =  1 + random()%20;
 		b = 1 + random()%20;
 		number  = a*a + b*b;
