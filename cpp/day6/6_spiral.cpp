@@ -4,13 +4,13 @@ using namespace std;
 
 int main()
 {
-    int n, m = 1;
-    cin >> n;
-    int arr[n][n];
+    const int n = 5;
+    int m = 1;
+    int arr[n][n] = {0};
     
-    if(n % 2 != 0){
+   /*if(n % 2 != 0){
         arr[(n / 2)][(n / 2)] = (n * n);
-    }
+    }*/
     
     for(int i = 0; i < (n / 2); i++){
         for(int j = i; j < (n - i); j++){
