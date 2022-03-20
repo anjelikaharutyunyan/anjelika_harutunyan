@@ -1,20 +1,28 @@
 #include <iostream>
+
 using namespace std;
 
-int main(){
-        int x, a;
-        cout << "mtapahel tiv ";
-        cin >> a;
-
-do {
-        cout << "mutqagrel mtapahvac tivy ";
-        cin >> x;
-if ( x > a )            cout << "tivy mec e mtapahvac tvic, pordzel krkin";
-else if ( x < a )       cout << "tivy poqr e mtapahvac tvic, pordzel krknin";
-else if( x==a )          cout << "duq jisht eq gushakel tivy";
+int main()
+{
+    int number,guess;
+    cout << "Remember a number ";
+    cin >> number;
+    cout << "Try to guess remembered number ";
+   
+    do{  
+        cin >> guess;
+        if(guess > number ){
+            cout << "It's greater than remembered number ";
+        }
+        else if ( guess < number){
+            cout << "It's little than remembered number ";
+        }
+        else if( guess == number) {
+            cout << "It's wright!";
+        }
+    }
+    while(guess != number);
+    
+    return 0;
 }
 
-while( x!=a );
-
-return 0;
-}
