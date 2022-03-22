@@ -10,13 +10,19 @@ int main(){
 
         time_t dt  = second;
         string date = ctime(&dt);
+	string week = "";
         string day = "";
         string month = "";
         string year = "";
         string time = "";
 
         for(int i = 0; date[i] != '\0'; i++){
-                if ( i >= 3 && i <= 6  ){
+        
+		if ( i >= 0 && i <=3){
+			week = week + date[i];
+} 
+
+	       if ( i >= 3 && i <= 6  ){
                         day = day + date[i];
  }
           	  if( i >= 7 && i <= 9 ){
@@ -30,7 +36,7 @@ int main(){
 }
 }
 
-                cout << "Unix time: " << day + " " + month + " " + time + " " + year;
+                cout << "Unix time: " << week << " " << day << " " << month << " " << time << " " << year ;
 
 
 
