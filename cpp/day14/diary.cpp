@@ -1,4 +1,4 @@
-include <iostream>
+#include <iostream>
 #include <fstream>
 #include <string>
 using namespace std;
@@ -29,17 +29,19 @@ bool isEmpty(string);
 
 
 int main() {   
-    int dd = 0,mm  = 0,yy = 0; 
+    int dd = 0, mm  = 0, yy = 0; 
     struct data data_input;
+
     while(true) {
 
-      cout << "Input day: ";
+      cout << "Input day (dd/mm/yy): ";
       cin >> data_input.dataInfo;
-      cout << "Input Note:";
-      cin.ignore();
+	cin.ignore();
+      cout << "Input Note: ";
       getline(cin,data_input.Note);
       toStr(data_input.dataInfo,&dd,&mm, &yy);
-      string dayname = "";      
+      string dayname = "";   
+   
       int wday1 = weekDay(dd,mm,yy);
       weekD wday=(weekD) wday1;
       switch(wday) {                          
@@ -55,12 +57,9 @@ int main() {
       string way = to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy)+".txt";
       fstream fis;
       fis.open(way, fstream::in | fstream::out | fstream::app);
-      if (!fis.is_open()) {
-          cout << "File  closed";
-      }
-      else {
-         
-          if (isEmpty(way)) {
+      if (fis.is_open()) {
+	
+        if (isEmpty(way)) {
             fis << dayname <<"\t" <<  data_input.dataInfo <<  "\t" <<  data_input.Note << "\n"; 
           }
           else {
@@ -68,17 +67,17 @@ int main() {
           }  
       }
 
-      cout << "Command: add/exit ";            
+cout << "Command: add/exit ";                                           
       cin >> data_input.command;
     
-      if(data_input.command == "add") {       
+      if(data_input.command == "add") {                                     
           continue;
       }
-      else if(data_input.command == "exit") {  
+      else if(data_input.command == "exit") {                               
           return 0;
       }
       else {
-          cout << "Enter Command: add/exit: ";       
+          cout << "Enter Command: add/exit: ";                             
           cin >> data_input.command;
       }
     
@@ -88,7 +87,12 @@ int main() {
 }
 
 
-int weekDay(int dd,int mm,int yy) {                     
+
+
+
+
+
+ int weekDay(int dd,int mm,int yy) {                     
     int weeknum = dd + ((153 * (mm + 12 * ((14 - mm) / 12) - 3) + 2) / 5) 
                 + (365 * (yy + 4800 - ((14 - mm) / 12)))
                 + ((yy + 4800 - ((14 - mm) / 12)) / 4)
