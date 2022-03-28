@@ -37,7 +37,7 @@ int menu1(void) {
 	}
 
 
-//----------------------------------------------------------------------------------------------------------3
+
 
   void start (int option) {
 
@@ -47,7 +47,7 @@ int menu1(void) {
 
  int random = rand() % 15;
  string me ;
- bool t = false;       // es kiraca ver  2 rd ific skse 3 rord if- @ mtnevech
+ bool t = false;      
  bool f = true;
 
 	  while (f) {
