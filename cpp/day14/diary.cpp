@@ -32,9 +32,9 @@ bool isEmpty(string);
 int main() {   
     int dd = 0, mm  = 0, yy = 0; 
     struct data data_input;
-	
+	data_input.command = "add";
 
-    while(true) {
+    while( data_input.command == "add") {
 
       cout << "Input day (dd/mm/yy): ";
       cin >> data_input.dataInfo;
