@@ -59,7 +59,7 @@ int main(){
 
 	if( cars_model == car[0] ){
 		for( int i = 0; i < 6; i++){
-			if(info[i].mark == car[0]){
+			if(info[i].mark == cars_model){
 		
 			cout << "Mark : " << info[i].mark << endl;
 			cout << "Model : " << info[i].model << endl;
@@ -76,7 +76,7 @@ int main(){
 
 			for( int i = 0; i < 6; i++){
 
-				if(info[i].color == car[6]){
+				if(info[i].color == cars_color){
 				
 			cout << "Mark : " << info[i].mark << endl;
 			cout << "Model : " << info[i].model << endl;
