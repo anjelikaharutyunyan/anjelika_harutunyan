@@ -152,14 +152,15 @@ int main(){
 
 	}
 
-	int lines(){
+	int line(){
 
 	int c = 0;
-	string line;
+	string line_arr;
 	ifstream pr_car("cars.txt");
-	while(getline(pr_car,line)){
 
-	c++;
+	while(getline(pr_car,line_arr)){
+
+	++c;
 
 	}
 
