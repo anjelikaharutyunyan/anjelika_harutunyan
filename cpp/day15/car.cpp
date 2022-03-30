@@ -15,89 +15,178 @@ struct carInfo {
 	string color;
 };
 
+	void print(carInfo);
+	int line();
+
+
 int main(){
 	
-	struct carInfo info[6];
-
-	ifstream MyCarFile;
-	MyCarFile.open("car.txt");
-	MyCarFile.close();
-
+	struct carInfo info[7];
 	string str = "";
-	string  car[6];
-	int count = 0, i = 0;
+	string car_arr[7];
+	ifstream file("cars.txt");
+	int i = 0, count = 0;
 
-	while(!MyCarFile.eof()){
-	MyCarFile >> str;
-	car[i] = str;
+	while(!file.eof()){
 
-	if(i == 6){
-	info[count].mark = car[0];
-	info[count].model = car[1];
-	info[count].minPrice = stoi(car[2]);
-	info[count].maxPrice = stoi(car[3]);
-	info[count].mileage = stoi(car[4]);
-	info[count].trans_box = car[5];
-	info[count].color = car[6];
-
-	count++;
-	i = -1;
-	}
-
+	file >> str;
+	car_arr[i] = str;
 	i++;
+	if(i == 7){
+
+	info[count].mark = car_arr[0];
+	info[count].model = car_arr[1];
+	info[count].minPrice = stoi(car_arr[2]);
+	info[count].maxPrice = stoi(car_arr[3]);
+	info[count].mileage = stoi(car_arr[4]);
+	info[count].trans_box = car_arr[5];
+	info[count].color = car_arr[6];
+	i = 0;
+	count++;
 
 	}
 
-	MyCarFile.close();
 
-	string cars_model = "";
-	string cars_color = "";
-	cout << "Enter search mark: ";
-	getline(cin,cars_model);
-	cout << "Enter search car's color:";
-	getline(cin,cars_color);
+	}
 
-	if( cars_model == car[0] ){
-		for( int i = 0; i < 6; i++){
-			if(info[i].mark == cars_model){
+	file.close();
+	string command;
+
+	cout << "Enter 'list' to see all cars" << endl;
+	cout  << " 'search' to search car: " << endl;
+	getline(cin,command);
+
+	if( command == "list"){
+
+	for(int i = 0; i < line(); i++){
 		
-			cout << "Mark : " << info[i].mark << endl;
-			cout << "Model : " << info[i].model << endl;
-			cout << "Min. Price : " << info[i].minPrice << endl;
-			cout << "Max. Price : " << info[i].maxPrice << endl;
-			cout << "Mileage : " << info[i].mileage << endl;
-			cout << "Trans_Box : " << info[i].trans_box << endl;
-			cout << "Color : " << info[i].color << endl;
+		cout << info[i].mark << " ";
+		if((i + 1) % 3 == 0 && i != 0){
 
-}
-}	
-}
-			else if (cars_color == car[6]){
-
-			for( int i = 0; i < 6; i++){
-
-				if(info[i].color == cars_color){
-				
-			cout << "Mark : " << info[i].mark << endl;
-			cout << "Model : " << info[i].model << endl;
-			cout << "Min. Price : " << info[i].minPrice << endl;
-			cout << "Max. Price : " << info[i].maxPrice << endl;
-			cout << "Mileage : " << info[i].mileage << endl;
-			cout << "Trans_Box : " << info[i].trans_box << endl;
-			cout << "Color : " << info[i].color << endl;
-
-}
+		cout << endl;
 	
+		}
+
+	}
+
+	}
+
+	if(command == "search"){
+
+	string mark;
+	int minPrice, maxPrice, filter;
+	
+	cout << "Enter filter count: ";
+	cin >> filter;
+	
+	if(filter == 1){
+
+	cout << "Enter car's mark: ";
+	
+	cin >> mark;
+
+
+	for( int i = 0; i < line(); i++){
+
+	if((mark == info[i].mark) && (minPrice == 0)){
+	
+	print(info[i]);
+
+	}
+
+	}
+
+	}
+	else if ( filter == 2){
+
+	cout << "Enter car's mark: ";
+	cin >> mark;
+	cout << "Enter the min price: ";
+	cin.ignore();
+	cin >> minPrice;
+
+	for(int i = 0; i < line(); i++){
+	
+	if( (mark == info[i].mark) && (minPrice <= info[i].minPrice)){
+
+	cout << endl;
+	print(info[i]);
+	
+	}
+
+	}
+	
+	}
+	
+	else if( filter == 3){
+
+	cout << "Enter car's mark: ";
+	cin >> mark;
+	cout << "Enter the min price: ";
+	cin.ignore();
+	cin >> minPrice;
+	cout << "Enter the max price: ";
+	cin >> maxPrice;
+
+	for(int i = 0; i < line(); i++){
+	
+	if((mark == info[i].mark) && (minPrice <= info[i].minPrice) && (maxPrice >= info[i].maxPrice )){
+
+	cout << endl;
+	print(info[i]);
+
+	}
+
+	}
+
+	}
+	else {
+
+	cout << "Input in range [1-3]:  ";
+	return 0;
+	}
+
+	}
+	
+	return 0;
+
+	}
+
+	int lines(){
+
+	int c = 0;
+	string line;
+	ifstream pr_car("cars.txt");
+	while(getline(pr_car,line)){
+
+	c++;
+
+	}
+
+	pr_car.close();
+	
+	return c;
+	}
+
+	void print(carInfo car){
+
+	cout << "===============================" << endl;	
+        cout << "Mark:      \t" << car.mark << endl;
+	cout << "-------------------------------" << endl;
+        cout << "Model:      \t" << car.model << endl;
+	cout << "-------------------------------" << endl;
+        cout << "Min Price:  \t" << car.minPrice << endl;
+	cout << "-------------------------------" << endl;
+        cout << "Max Price:  \t" << car.maxPrice << endl;
+	cout << "-------------------------------" << endl;
+        cout << "Mileage:    \t" <<  car.mileage << endl;
+	cout << "-------------------------------" << endl;
+        cout << "Trans_box:     \t" << car.trans_box << endl;
+	cout << "-------------------------------" << endl;
+        cout << "Color:      \t" << car.color << endl;
+	cout << "===============================" << endl;
 }
-		
 
 
 
 
-
-
-
-
-}
-return 0;
-}
