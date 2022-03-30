@@ -73,7 +73,7 @@ int main(){
 
 	if(command == "search"){
 
-	string mark;
+	string mark, color;
 	int minPrice, maxPrice, filter;
 	
 	cout << "Enter filter count: ";
@@ -140,9 +140,35 @@ int main(){
 	}
 
 	}
+
+	else if( filter == 4){
+
+	cout << "Enter car's mark: ";
+	cin >> mark;
+	cout << "Enter the min price: ";
+	cin.ignore();
+	cin >> minPrice;
+	cout << "Enter the max price: ";
+	cin >> maxPrice;
+	cout << "Enter car's color: ";
+	cin >> color;
+
+	for(int i = 0; i < line(); i++){
+	
+	if((mark == info[i].mark) && (minPrice <= info[i].minPrice) && (maxPrice >= info[i].maxPrice ) && (color == info[i].color)){
+
+	cout << endl;
+	print(info[i]);
+
+	}
+
+	}
+
+	}
+
 	else {
 
-	cout << "Input in range [1-3]:  ";
+	cout << "Input in range [1-4]:  ";
 	return 0;
 	}
 
@@ -187,7 +213,3 @@ int main(){
         cout << "Color:      \t" << car.color << endl;
 	cout << "===============================" << endl;
 }
-
-
-
-
