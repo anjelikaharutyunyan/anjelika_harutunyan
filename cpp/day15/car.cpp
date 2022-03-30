@@ -31,8 +31,10 @@ int main(){
 
 	file >> str;
 	car_arr[i] = str;
+
 	i++;
-	if(i == 7){
+
+	if(i == 6){
 
 	info[count].mark = car_arr[0];
 	info[count].model = car_arr[1];
@@ -41,7 +43,7 @@ int main(){
 	info[count].mileage = stoi(car_arr[4]);
 	info[count].trans_box = car_arr[5];
 	info[count].color = car_arr[6];
-	i = 0;
+	i = -1;
 	count++;
 
 	}
@@ -52,8 +54,7 @@ int main(){
 	file.close();
 	string command;
 
-	cout << "Enter 'list' to see all cars" << endl;
-	cout  << " 'search' to search car: " << endl;
+	cout << "Enter 'list' to see all cars,  'search' to search car: " << endl;
 	getline(cin,command);
 
 	if( command == "list"){
@@ -88,7 +89,7 @@ int main(){
 
 	for( int i = 0; i < line(); i++){
 
-	if((mark == info[i].mark) && (minPrice == 0)){
+	if(mark == info[i].mark){
 	
 	print(info[i]);
 
