@@ -24,15 +24,20 @@ int main(){
 	struct carInfo info[7];
 	string str = "";
 	string car_arr[7];
-	ifstream file("cars.txt");
+
+
+	ifstream file;
+	file.open("cars.txt");
 	int i = 0, count = 0;
 
 	while(!file.eof()){
 
 	file >> str;
+
 	car_arr[i] = str;
 
-	i++;
+	//i++;
+
 
 	if(i == 6){
 
@@ -47,7 +52,7 @@ int main(){
 	count++;
 
 	}
-
+	i++;
 
 	}
 
@@ -62,12 +67,6 @@ int main(){
 	for(int i = 0; i < line(); i++){
 		
 		cout << info[i].mark << " ";
-		if((i + 1) % 3 == 0 && i != 0){
-
-		cout << endl;
-	
-		}
-
 	}
 
 	}
