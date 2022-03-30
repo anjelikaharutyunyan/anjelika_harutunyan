@@ -1,7 +1,7 @@
-Lexus NX 30000 32000 60000 automatic white
-Toyota Camry 15000 15800 130000 automatic black
-Toyota Corolla 14000 14400 automatic black
-BMW 5Series 7000 7700 235000 automatic black
-Ford Explorer 12000 14000 160000 automatic white
-Kia Forte 10000 10800 48000 automatic grey
+Lexus NX 30000 35000 60000 automatic white
+Toyota Camry 15000 18000 130000 automatic black
+Toyota Corolla 14000 16000 118000 automatic black
+BMW 5Series 7000 8000 235000 automatic black
+Ford Explorer 10000 14000 160000 automatic white
+Kia Forte 10000 10000 48000 automatic grey
 Nissan Murano 20000 27000 49500 automatic blue
