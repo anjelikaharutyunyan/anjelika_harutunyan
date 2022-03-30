@@ -27,7 +27,7 @@ int main(){
 
 
 	ifstream file;
-	file.open("cars.txt");
+	file.open("car.txt");
 	int i = 0, count = 0;
 
 	while(!file.eof()){
@@ -66,7 +66,7 @@ int main(){
 
 	for(int i = 0; i < line(); i++){
 		
-		cout << info[i].mark << " ";
+		cout << info[i].mark << "   ";
 	}
 
 	}
@@ -88,7 +88,7 @@ int main(){
 
 	for( int i = 0; i < line(); i++){
 
-	if(mark == info[i].mark){
+	if( mark == info[i].mark ){
 	
 	print(info[i]);
 
@@ -156,7 +156,7 @@ int main(){
 
 	int c = 0;
 	string line_arr;
-	ifstream pr_car("cars.txt");
+	ifstream pr_car("car.txt");
 
 	while(getline(pr_car,line_arr)){
 
