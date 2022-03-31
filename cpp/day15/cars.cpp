@@ -110,16 +110,16 @@ int main(){
 	file.close();
 	struct car arr[row];
 	
-	ifstream car("car.txt");
+	ifstream myfile("car.txt");
 	string mycar1 = "";
 	string mycar2 = "";
 	int count = 0; 
 	int j = 0;
 	string parameters[7];
 
-		while(!car.eof()){
+		while(!myfile.eof()){
 	
-		car >> mycar1;
+		myfile >> mycar1;
 		parameters[j] = mycar1;
 		j++;
 
@@ -140,7 +140,7 @@ int main(){
 
 		}
 
-		car.close();
+		myfile.close();
 
 	for(int count = 0; count < row; count++){
 	
@@ -150,10 +150,10 @@ int main(){
 		if(model && model1 != arr[count].model){
 		continue;
 		}
-		if( price && (arr[count].price < price_max || arr[count].price > price_min )){
+		if( price && (arr[count].price < price_min || arr[count].price > price_max )){
 		continue;	
 		}	
-		if(mileage && (arr[count].mileage < mil_max || arr[count].mileage > mil_min)){
+		if(mileage && (arr[count].mileage < mil_min || arr[count].mileage > mil_max)){
 		continue;
 		}		
 		if(engine && engine1 != arr[count].engine){
