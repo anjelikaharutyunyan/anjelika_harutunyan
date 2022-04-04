@@ -3,21 +3,18 @@
 
 using namespace std;
 
-int main(){
-	 int chickens, cows, pigs;
-	 int sum=0;
-	cout << " Chickens are ";
+int main()
+{
+	int chickens, cows, pigs, sum = 0;
+	cout << " How many chickens farmer has? ";
 	cin >> chickens;
-	cout << "Cows are ";
+	cout << "How many cows farmer has? ";
 	cin >> cows;
-	cout << "Pigs are ";
-	 cin >> pigs;
-sum = 2*chickens + 4*cows + 4*pigs;
+	cout << "How many pigs farmer has? ";
+	cin >> pigs;
 
-cout << "Farmer has " << sum << " animals in his farm";
-
- 	
-
+	sum = 2*chickens + 4*cows + 4*pigs;
+	cout << "Farmer has " << sum << " animals in his farm";
 
 return 0;
 }
