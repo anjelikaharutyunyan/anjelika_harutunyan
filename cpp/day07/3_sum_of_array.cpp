@@ -1,23 +1,34 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
-int main() {
- 
-   int arr[5], i, sum = 0;
-    int *ptr;
- 
-    cout << "Enter any 5 numbers :";
-    for (i = 0; i < 5; i++) {
-        cin >> arr[i];
-    }
- 
-    ptr = arr;
-    for (i = 0; i < 5; i++) {
-        sum = sum + *(ptr + i);
-    }
- 
-    cout << "\nSum of array elements :" << sum;
- 
-    return 0;
- 
+void sum(int *arr, int size){
+	srand(time(0));
+	int sum = 0;
+	int *ptr = arr;
+	while( ptr < arr + size){
+	sum = sum + *(ptr++);		
+ 	}
+	cout << "Sum = " << sum << endl;
 }
+
+int main(){
+
+int size;
+cout << "Enter size of array: ";
+cin >> size;
+
+int *arr = new int[size];
+int *ptr = arr;
+
+for(int i = 0; i < size; i++){
+	arr[i] = 1 + rand() % 10;
+	cout << arr[i] << " "; 
+
+}
+
+sum(ptr,size);
+return 0;
+}
+
