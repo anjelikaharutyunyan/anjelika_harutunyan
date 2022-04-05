@@ -14,12 +14,10 @@ cout << "First matrix" << endl;
 for(int i = 0; i < n; i++){
 	for (int j = 0; j < size; j++){
 		matrix1[i][j] = 1 + rand() % 10;
-		cout << matrix1[i][j] << "\t";
- 
+		cout << matrix1[i][j] << "\t"; 
 	}
 	cout << endl; 
 }
-
 cout << "Second matrix" << endl;
 for (int i = 0; i < size; i++){
 	for (int j = 0; j < size; j++){
@@ -28,7 +26,6 @@ for (int i = 0; i < size; i++){
 	}
 	cout << endl;
 }
-
 cout << "Sum of 2 matrices" << endl;
 for(int i = 0; i < size; i++){
 	for(int j = 0; j < size; j++){
