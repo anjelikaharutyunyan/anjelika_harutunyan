@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 void swap( int *first, int *second){
 	int temp;
 
@@ -9,9 +10,9 @@ void swap( int *first, int *second){
 
 }
 int main(){
-	int a,b;
+	int a, b;
 
-	cout << "Enter the numbers: " << endl;
+	cout << "Enter numbers: " << endl;
 	cin >> a;
 	cin >> b;
 
