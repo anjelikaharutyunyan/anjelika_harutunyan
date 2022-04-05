@@ -1,19 +1,26 @@
 #include <iostream>
 #include <math.h>
 using namespace std;
-int f ( int edg, int edg2){
 
-        cout << "The 1st edg of rectangle " << edg << endl;
-        cout << "The 2nd edg of rectangle " << edg2 << endl;
-         cout << "Area of Rectangle = " << edg*edg2 << endl;
-        cout << "Perimeter of Rectangle = " << (edg+edg2)*2;
+void rectangle (int length, int width){
 
-return 0;
+	int perimeter = 0, area = 0;
+	perimeter = (2 * length) + (2 * width);
+	area = length * width;
+
+        cout << "Area of Rectangle = " << area <<endl;
+        cout << "Perimeter of Rectangle = " << perimeter;
 }
 
 int main()
 {
-  f(4,7);
+int length, width;
+cout << "Length = ";
+cin >> length;
+cout << "Width = ";
+cin >> width;
+
+rectangle(length,width);
 
 return 0;
 }
