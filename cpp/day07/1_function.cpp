@@ -1,16 +1,43 @@
 #include <iostream>
 
 using namespace std;
-void sum_number (int first, int second){
-    int *p, *q, sum;
-    p = &first;
-    q = &second;
-    sum = *p + *q;
-    cout <<"Sum of two numbers is " <<sum;
+
+void sum1(int *num1, int *num2, int * sum) {
+	*sum = *num1 + *num2;
+	cout <<" sum 1: " <<  *num1 << " + " << *num2  << " = " << *sum << endl;
+}
+void sum2(int &num1, int &num2, int &sum) {
+	sum = num1 + num2;
+	cout << " sum 2: " << num1 << " + " << num2 << " = " << sum <<   endl;
 }
 
-int main(){
-    sum_number(3,5);
-    
-   return 0;
+void sum3(int num1, int num2, int &sum) {
+	sum = num1 + num2;
+	cout << " sum 3: " << num1 << " + " << num2 << " = " << sum <<  endl;
+}
+
+void sum4(int num1, int *num2, int &sum) {
+	sum = num1 + *num2;
+	cout << " sum 4: " << num1 << " + " << *num2 << " = " << sum << endl;
+}
+
+void sum5(int *num1, int *num2, int &sum) {
+	sum = *num1 + *num2;
+	cout << " sum 5: " << *num1 << " + " << *num2 << " = " << sum << endl;
+}
+
+int main () {
+  
+int num1, num2, sum = 0;
+cout << "Enter first number: ";
+cin >> num1;
+cout << "Enter second number: ";
+cin >> num2;
+sum1(&num1, &num2, &sum);
+sum2(num1, num2, sum);
+sum3(num1, num2, sum);
+sum4(num1, &num2, sum);
+sum5(&num1, &num2, sum);
+     
+return 0;
 }
