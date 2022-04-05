@@ -1,17 +1,23 @@
 #include <iostream>
 #include <math.h>
 using namespace std;
- int number ( int x){
+
+int multiplication (int number){
+
 	int i = 1;
-        cout << "mutqagrel tivy ";
-        while(i <= 10){
-        cout << x << "*" << i << "=" << x*i <<endl;
+        while (i <= 10){
+        
+	cout << number << " * " << i << " = " << number * i << endl;
         i++;
-}
+  	}
 return 0;
 }
 
 int main()
 {
-  return number(10);
+	int number;
+	cout << "Enter a number : ";
+	cin >> number;
+	
+return multiplication(number);
 }
