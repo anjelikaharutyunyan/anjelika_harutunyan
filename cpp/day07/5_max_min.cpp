@@ -1,29 +1,35 @@
 #include <iostream>
-
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
-  int main()  
-{  
-    int a[5], i, *small,*large;  
-  
-    cout << "Enter  integer numbers\n" ;  
-    for(i = 0; i < 5; i++) { 
-        cin >> a[i];  
-    }
-    small = &a[4];  
-   large = &a[0];
-    for(i = 0; i < 4 ;i++)  
-    {  
-        if( *(a + i) < *small)  {
-            *small = *(a + i);  
-    }  
-    if( *(a + i) > *large)  {
-            *large = *(a + i);  
-    }  
-    
-    }
-   cout << "Smallest Element In The Array: "<< *small << endl;  
-  cout << "Largest Element In The Array: "<< *large;
-    
-    return 0;
+void max_min_element(int arr[], int size){
+ int *small, *large, *ptr = arr;
+ small = &arr[size - 1];
+ large = &arr[0];
+for(int i = 0; i < size - 1; i++){  
+	if( *(arr+ i) < *small){
+            *small = *(arr + i);  
+    	}  
+   	 if( *(arr + i) > *large){
+            *large = *(arr + i);  
+   	}  
+}
+cout << "Smallest element = " << *small << ", Largest element = " << *large << endl;  
+}
+int main(){
 
+srand(time(0));
+int size;
+cout << "Array size: ";
+cin >> size;
+int *arr = new int[size];
+for(int i = 0; i < size; i++){
+	arr[i] = rand() % 10 + 1;
+	cout << arr[i] << " ";
+}
+cout << endl;
+max_min_element(arr,size);
+
+  return 0; 
+}
