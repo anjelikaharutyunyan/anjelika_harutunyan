@@ -2,8 +2,8 @@
 #include <cstdlib>
 #include <time.h>
 using namespace std;
-int main(){
 
+int main(){
 srand(time(0));
 int n;
 cout << "Enter array size: ";
