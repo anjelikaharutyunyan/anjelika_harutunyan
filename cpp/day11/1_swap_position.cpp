@@ -21,8 +21,7 @@ int position1, position2;
 cout << "Enter positions: " << endl;
 cin >> position1;
 cin >> position2;
-
-
+	
 if( position1 > 0 && position1 < size && position2 > 0 && position2 < size){
 	arr [position2 - 1] = arr[position2 - 1] - arr[position1 - 1];
 	arr[position1 - 1] = arr[ position2 - 1] + arr[position1 - 1];
@@ -36,6 +35,5 @@ cout << "Swapped array is : ";
 	for( int i = 0; i < size; i++){
 	cout << arr[i];
 }
-
 return 0;
 }
