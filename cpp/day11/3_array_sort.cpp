@@ -16,9 +16,7 @@ for(int i = 0; i < size; i++){
 	cout << arr[i];
 }
 cout << endl;
-
 int count = 0, max_len = 0, element = 0, first_element = 0;
-
 for(int i = 0; i < size; i++){
 	count = 0;
 	for(int j = i; j < size - 1; j++){
