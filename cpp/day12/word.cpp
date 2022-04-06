@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-
 using namespace std;
 
 string correct (string word) {
@@ -12,11 +11,11 @@ string correct (string word) {
 	while(!myfile.eof()) {
 		count = 0;
 		getline(myfile, word_correct);
-		for(int i = 0; word[i] != '\0'; i++) {
-			if(word[i] != word_correct[i]){
-				count ++;
-			}
+	for(int i = 0; word[i] != '\0'; i++) {
+		if(word[i] != word_correct[i]){
+			count ++;
 		}
+	}
 		if(count == 1) {
 			break;
 		}
@@ -25,10 +24,10 @@ string correct (string word) {
 	myfile.close();
 	if(count != 1) {
 		return word;
-}
+	}
+
   return word_correct;
 }
-
 int main() {
 
 ofstream correct_file;
@@ -42,8 +41,8 @@ int i = 0;
 
 while(str[i] != '\0') {
 	word = " ";
-	for(;str[i] != ' '; i++){
-		word += str[i];
+for(;str[i] != ' '; i++){
+	word += str[i];
 	}
 	i++;
 	correct_file << " " << correct(word) << endl;
