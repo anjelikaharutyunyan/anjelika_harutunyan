@@ -4,14 +4,14 @@
 using namespace std;
 
 int menu(){
-cout << "------------	WELCOME    ----------" << endl << endl;
-cout << "	Do you admin(0) or client(1) 		" << endl;
+
+cout << "  WELCOME  \n  Do you admin(0)  or  client(1)  " << endl;
 int choose;
-cin >> choose;
+cin >> choose ;
 
 return choose;
-}
 
+}
 char plus_minus(bool a) {
 
 if(a){
@@ -21,102 +21,101 @@ else{
 	return '-';
 }
 }
-///ADMIN///
+/////////////////////////		AGENT		////////////////////////////////
 int main(){
 
 int a;
 a = menu();
 if(a == 0) {   
 	string rows = "";
-	string a;
-	string b;
+	string add;
 
 	cout << "Enter city: ";
-	getline(cin,a);
-	getline(cin,a);
-	rows += a + " ";
+	getline(cin,add);
+	getline(cin,add);
+	rows += add + " ";
 
 	cout << "Enter hotel name: ";
-	getline(cin,a);
-	rows += a + " ";
+	getline(cin,add);
+	rows += add + " ";
 
 	cout <<"Enter star rate: ";
-	getline(cin,a);
-	rows += a + " ";
+	getline(cin,add);
+	rows += add + " ";
 
 	cout << "Enter singl room: ";
-	getline(cin,a);
-	rows += a + " ";
+	getline(cin,add);
+	rows += add + " ";
             
-	if(a != "0"){
+	if(add != "0"){
            
         	cout << "Enter per night price: " ;
-       		getline(cin,a);
-        	rows += a + " ";
+       		getline(cin,add);
+        	rows += add + " ";
         }
         else{
-                rows += a + " ";
+                rows += add + " ";
 
         }
 
         cout << "Enter twin room: ";
-        getline(cin,a);
-        rows += a + " ";
+        getline(cin,add);
+        rows += add + " ";
             
-        	if(a != "0"){
+        	if(add != "0"){
                 	cout << "Enter per night price: " ;
-                	getline(cin,a);
-               		rows += a + " ";
+                	getline(cin,add);
+               		rows += add + " ";
             	}
               	
 		else{
-                    rows += a + " ";
+                    rows += add + " ";
             	}
 
 
          cout << "Enter triple room: ";
-         getline(cin,a);
-         rows += a + " ";
+         getline(cin,add);
+         rows += add + " ";
 
-         if(a != "0"){   
+         if(add != "0"){   
                 cout << "Enter per night price: " ;
-                getline(cin,a);
-                rows += a + " ";
+                getline(cin,add);
+                rows += add + " ";
           }
           else{
-                rows += a + " ";
+                rows += add + " ";
 
           }
           cout << "Enter 4  room: ";
-          getline(cin,a);
-          rows += a + " ";
+          getline(cin,add);
+          rows += add + " ";
  
-          if(a != "0"){
+          if(add != "0"){
             
                 cout << "Enter per night price: " ;
-                getline(cin,a);
-                rows += a + " ";
+                getline(cin,add);
+                rows += add + " ";
           }
           else{
-                rows += a + " ";
+                rows += add + " ";
 
           }
 	
 	   cout << "Enter existing of spa (0/1): ";
-           getline(cin,a);
-           rows += a + " ";
+           getline(cin,add);
+           rows += add + " ";
           
 	   cout << "Enter existing of gym (0/1): ";
-           getline(cin,a);
-           rows += a + " ";
+           getline(cin,add);
+           rows += add + " ";
          
            cout << "Enter existing of wi-fi (0/1): ";
-           getline(cin,a);
-           rows += a + " ";
+           getline(cin,add);
+           rows += add + " ";
   
            cout << "Enter existing of parking (0/1): ";
-           getline(cin,a);
-           rows += a + " ";
+           getline(cin,add);
+           rows += add + " ";
          
 ofstream file("booking.txt", ios::app);
 file << rows << endl;
@@ -128,7 +127,7 @@ file.close();
 
 if(a == 1){
 
-    struct s_hotel{
+    struct client_hotel{
 	string city;
 	string hotelname;
 	int star;
@@ -155,7 +154,7 @@ while(getline(line,str)){
 }
 line.close();
   
-struct s_hotel hotel[rows];
+struct client_hotel hotel[rows];
 int parametr = 15;                             
 string s = "";
 string agent[parametr];    
@@ -190,7 +189,7 @@ int i = 0, count = 0;
 booklist.close();
  
 	
-cout << "Filter by   0.list | 1.City | 2.Star rating | 3.Rooms quantity | 4.Price | 5.Spa | 6.Gym | 7.Wi-Fi | 8.Parking  " << endl;
+cout << "| 0.Search | 1.City | 2.Star rating | 3.Room quantity | 4.Price | 5.Spa | 6.Gym | 7.Wi-Fi | 8.Parking |" << endl;
 bool a = true;
 bool b1 [8];  
 	for(int i = 0; i < 8; i++) {
@@ -207,10 +206,10 @@ bool wi_fi1;
 bool parking1;
 
 while (a){
-int i;
-cout << endl << " Choose --> ";
-cin >> i;                                       
-	switch (i){
+int choise;
+cout << endl << " Filter by --> ";
+cin >> choise;                                       
+	switch (choise){
 		case 0:
 			a = false;
 		break;
@@ -223,7 +222,7 @@ cin >> i;
 	        break;
 
 		case 2:
-			cout << "Star: ";
+			cout << "Enter star rating: ";
 			cin >> star1;
 			b1[1] = true;
 		break;
@@ -268,7 +267,7 @@ cin >> i;
 	}
    } 
 	if(b1[3] && !(b1[2])) {
-		cout << "	 How many room do you want? 	"<< endl;
+		cout << "	 How many rooms do you want? 	"<< endl;
 		return 0;
 	}
  for (int k = 0; k < rows; k++) {
@@ -319,7 +318,7 @@ cin >> i;
 
 	else if(room1 == 3) {                                       
 		if(hotel[k].tripleroom <= 0){
-		continue;
+		continue; 
 		}
 		if(b1[3] && ( hotel[k].triple_price < price_min1 || hotel[k].triple_price > price_max1)){
 		continue; 
@@ -343,43 +342,45 @@ cin >> i;
 	}
 	 if(b1[2]) {
 
-		cout << " We have not such room " << endl;
+		cout << " We havn't such room " << endl;
 		break;
 	}
-		cout << k <<" --> "<< hotel[k].city << " "<< hotel[k].hotelname << " "<< hotel[k].star << "Star "  << " SPA";
+		cout << k <<" --> "<< hotel[k].city << " "<< hotel[k].hotelname << " "<< hotel[k].star << "-Star "  << " SPA";
 		cout <<  plus_minus( hotel[k].spa) << " GYM" << plus_minus(hotel[k].gym) << " Wi-Fi" << plus_minus(hotel[k].wifi) << " Parking" << plus_minus(hotel[k].parking) << endl;
-        }	
-cout << endl <<">>>> For checking-in write number of such line <<<<" << endl;
+      	
+cout << endl <<"For checking-in enter number of that line" << endl;
 int index;
 cin >> index;
 		
 if(!b1[2]){	
 	cout << "You don't enter you room type" << endl;
-	return 0;
+	cin >> room1;
 	}
 if(room1 == 1) {
 	hotel[index].singlroom--;		
-	cout << "You have successfuly checking - out in " << hotel[index].hotelname << endl; 
+	cout << "You have successfuly check-in " << hotel[index].hotelname << endl; 
 	}
 	else if(room1 == 2) {
 
 	hotel[index].twinroom--;
-	cout << "You have successfuly checking - out in " << hotel[index].hotelname  << endl;
+	cout << "You have successfuly check-in " << hotel[index].hotelname  << endl;
 	}
 
 	else if(room1 == 3) {
 
 	hotel[index].tripleroom--;
-	cout << "You have successfuly checking - out in " << hotel[index].hotelname << endl;
+	cout << "You have successfuly checking-in " << hotel[index].hotelname << endl;
 	}
 
 	else if(room1 == 4) {
 
 	hotel[index].quad_room--;
-	cout << "You have successfuly checking - out in " << hotel[index].hotelname << endl;
+	cout << "You have successfuly checking-in " << hotel[index].hotelname << endl;
 	}
 
    }
 	return 0;
+
+}
 }
  
