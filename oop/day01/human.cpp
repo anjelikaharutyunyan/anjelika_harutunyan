@@ -1,60 +1,42 @@
-#include <iostream>
-using namespace std;
+#include "./human.h"
 
-enum EyeColor{
-	Black,blue,grey,green,brown
-};
-enum HairColor {
-	white,ginger,black
-};
-enum Gender{
-	Male,Female
-};
+void Human :: Eat (food_food){
 
-class Human{
-public:
-	Date birth_date;
-	EyeColor eye_color;
-	HairColor hair_color;
-	Gender gender;
-	int healthLevel;
-	char * Speak();
-	void Walk();
-	void See();
-	void Breathe();
-	bool Eat();
-	bool Drink();
-	int Sleep();
+	if(_food == orange || food == yogurt){
+	_health_level++;
 
-private: 
-	void Think();	
-};
-
-class HomoSapience : Human {
-private: 
-	Address address;
-	string name;
-	string surname;
-	Style style;
-	Nationality nationality;
-	void work();
-	};
-
-class Programmer : HomoSapience {
-public:
-	int sallary;
-	bool TestCode();	
-	void WriteCode();
-	void Smoke();
-	void GetAngry();
-	void GetHappy();	
-	void GetTyred();
-};
-
-int main(){
-
-	
-
-
-return 0;
+	}
 }
+
+void HomoSapience :: TestCode() {
+	if( _code == true){
+	void GetHappy(){
+	_health_level++;
+	}
+	}
+	else{
+	void GetAngry(){
+	_health_level--;
+	}
+	}
+
+	void WriteCode(code_code){
+	if( _code == done){
+	int sallary;
+	sallary++;
+	void GetHappy(){
+	_health_level++;
+	}
+	}
+	else{
+	void GetAngry(){
+	_health_level--;
+	void Smoke(){
+	_health_level--;
+	}
+	}
+	}
+	}
+}
+
+
