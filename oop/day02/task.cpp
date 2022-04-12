@@ -19,15 +19,13 @@ string result;
 int n = _n;
 cout << "Coefficient (" << n << ") :  ";
 cin >> coefficient;
-if(_Operator == "add"){
 	while(n >= 0){
-	AddSum += (coefficient * pow(_x, n));
-	result += (to_string(coefficient) + " * " + to_string(_x) + " ^ " + to_string(n)) + " + ";
+	AddSum += coefficient * (pow(_x, n));
+	result += (to_string(coefficient) + "*" + to_string(_x) + "^" + to_string(n)) + "+";
 	n--;	
 	coefficient--;
 	}
-	cout << result.substr(result.length()-1) << " = ";	
-}
+	cout << result.substr(0,result.length()-1) << " = ";	
 	return AddSum;
 }
 int subtract(){
@@ -36,15 +34,13 @@ int n = _n;
 string result;
 cout << "Coefficient (" << n << ") :  ";
 cin >> coefficient;
-if(_Operator == "subtract"){
 	while(n >= 0){
-	AddSum -= (coefficient * pow(_x, n));
-	result += (to_string(coefficient) + " * " + to_string(_x) + " ^ " + to_string(n)) + " + ";
+	AddSum -= coefficient * (pow(_x, n));
+	result += (to_string(coefficient) + "*" + to_string(_x) + "^" + to_string(n)) + "+";
 	n--;
 	coefficient--;
 	}	
-}
-	cout << result.substr(result.length()-1) << " = ";
+	cout << result.substr(0,result.length()-1) << " = ";
 	return AddSum;
 }
 int multiply(){	
@@ -53,16 +49,13 @@ string result;
 int n = _n;
 cout << "Coefficient (" << n << ") :  ";
 cin >> coefficient;	
-if(_Operator == "multiply"){
-	int AddSum = 0;
 	while(n >= 0){
 	AddSum *= (coefficient * pow(_x, n));
-	result += (to_string(coefficient) + " * " + to_string(_x) + " ^ " + to_string(n)) + " + ";
+	result += (to_string(coefficient) + "*" + to_string(_x) + "^" + to_string(n)) + "+";
 	n--;
 	coefficient--;
 }
-	cout << result.substr(result.length()-1) << " = ";
-}
+	cout << result.substr(0,result.length()-1) << " = ";
 	return 	AddSum;
 }
 };
@@ -77,9 +70,9 @@ cout << "Input operator(add,subtract,multiply) : ";
 cin >> Operator;
 
 Number* number = new Number(n,x,Operator);
-cout << number-> add() << endl;
-cout << number-> subtract() << endl;
-cout << number-> multiply() << endl;
+if(Operator == "add") cout << number-> add() << endl;
+if(Operator == "subtract") cout << number-> subtract() << endl;
+if(Operator == "multiply") cout << number-> multiply() << endl;
 
 return 0;
 }
