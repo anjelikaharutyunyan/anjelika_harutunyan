@@ -1,42 +1,22 @@
 #include "./human.h"
-
-void Human :: Eat (food_food){
-
-	if(_food == orange || food == yogurt){
-	_health_level++;
-
+#include "./date.h"
+void Human :: Eat(Food food){
+	if((food == Orange || food == Yogurt || food == Banana) && _healthlevel < 100){
+	_healthlevel++;	
 	}
 }
-
-void HomoSapience :: TestCode() {
-	if( _code == true){
-	void GetHappy(){
-	_health_level++;
-	}
-	}
-	else{
-	void GetAngry(){
-	_health_level--;
-	}
-	}
-
-	void WriteCode(code_code){
-	if( _code == done){
-	int sallary;
-	sallary++;
-	void GetHappy(){
-	_health_level++;
-	}
-	}
-	else{
-	void GetAngry(){
-	_health_level--;
-	void Smoke(){
-	_health_level--;
-	}
-	}
-	}
-	}
+void Human :: Drink(Liquid liquid){
+	if((liquid == Juice || liquid == Tea || liquid == Coffee) && _healthlevel < 100){
+	_healthlevel++;
 }
-
+	if((liquid == Alcohol) && _healthlevel < 100){
+	_healthlevel -= 3;
+}
+}
+void Human :: Walk(){
+	if(_healthlevel < 100){
+	_healthlevel++;
+	}
+	_weight--;
+}
 
