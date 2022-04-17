@@ -1,6 +1,6 @@
-#ifndef Homo_Sapience_h
-#define Homo_Sapience_h
+#include <iostream>
 #include "human.h"
+using namespace std;
 
 enum Religion {
 Christianity,Islam
@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif
+

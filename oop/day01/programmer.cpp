@@ -1,4 +1,7 @@
+#include <iostream>
 #include "./programmer.h"
+using namespace std;
+
 class Programmer :: Work(){
 
  TestCode(Code _code){
