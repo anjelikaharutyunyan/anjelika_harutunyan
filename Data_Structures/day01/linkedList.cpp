@@ -1,120 +1,117 @@
-#include <iostream>
 #include "linkedList.h"
-using namespace std;
+#include <iostream>
 
-Node ::Node()
-{
-    next = NULL;
+Node::Node() {
+
+    _next = NULL;
 }
-LinkedList ::LinkedList()
-{
-    head = NULL;
-    tail = NULL;
+
+LinkedList::LinkedList() {
+
+    _head = NULL;
+    _tail = NULL;
+    _count = 0;
 }
-void LinkedList ::add(int number)
-{
+
+LinkedList::~LinkedList() {
+
+    RemoveAll();
+}
+
+void LinkedList::Add(int value) {
+
     Node *new_node = new Node;
-    new_node->value = num;
-    new_node->next = NULL;
+    new_node->_data = value;
+    new_node->_next = NULL;
 
-    if (head == NULL)
-        head = tail = new_node;
-}
-else
-{
-    tail->next = new_node;
-    tail = tail->next;
-}
-}
-void LinkedList ::addAt(Node *prev_node, int value)
-{
-    if(prev_node == NULL){
-        return;
+    if (_head == NULL) {
+        _head = new_node;
+        _tail = new_node;
+    } else {
+        _tail->_next = new_node;
+        _tail = _tail->_next;
     }
+    ++_count;
+}
+
+void LinkedList::AddAt(int index, int value) {
+    
     Node *new_node = new Node();
-    new_node->value = value;
-    new_node->next = prev_node->next;
-    prev_node->next = new_node;
-}
-void LinkedList ::remove()
-{
-    Node *temp1 = head;
-    if (temp1 == NULL)
-    {
-        cout << "List is empty" << endl;
-    }
-    else if (temp1->next == NULL)
-    {
-        delete (temp1);
-        temp1 = NULL;
-    }
-    else
-    {
-        Node *temp2 = head;
-        while (temp2->next->next != NULL)
-        {
-            temp2 = temp2->next;
+    new_node->_data = value;
+    if (index == 0) {
+        new_node->_next = _head;
+        _head = new_node;
+    } else {
+        Node *temp = _head;
+        for (int i = 0; i < index - 1; i++) {
+            temp = temp->_next;
         }
-        delete (temp2->next);
-        temp2->next = NULL;
+
+        new_node->_next = temp->_next;
+        temp->_next = new_node;
+    }
+    ++_count;
+}
+
+void LinkedList::RemoveLast() {
+
+    RemoveAt(Count() - 1);
+}
+
+void LinkedList::RemoveAt(int index) {
+
+    if (index == 0) {
+        Node* tmp = _head;
+        _head = _head->_next;
+        delete tmp; 
+    } else  {
+        Node *prev = _head;
+
+        for (int i = 0; i < index - 1; i++) {
+            prev = prev->_next;
+        }
+        Node *temp;
+        temp = prev->_next;
+        prev->_next = temp->_next;
+        delete temp;
+        
+    } 
+    --_count;
+}
+
+void LinkedList::RemoveAll() {
+
+    while (_count > 0) {
+        RemoveLast();
     }
 }
-void LinkedList ::removeAt(Node *number)
-{
-    Node *temp;
-    temp = number->next;
-    number->next = temp->next;
-    delete temp;
-}
-int LinkedList::GetElement(int index)
-{
+
+int LinkedList::GetElementAt(int index) {
 
     int count = 0;
-    Node *temp = head;
-
-    while (temp != NULL)
-    {
-        if (count == index)
-        {
-            return temp->data;
+    Node *temp = _head;
+    while (temp != NULL) {
+        if (count == index) {
+            return temp->_data;
         }
-        count++;
-        temp = temp->next;
+        ++count;
+        temp = temp->_next;
     }
+    return 0;
 }
 
-int LinkedList::CountOfNodes()
-{
+int LinkedList::Count() {
 
-    Node *temp = head;
-    int count = 0;
-
-    while (temp != NULL)
-    {
-        count++;
-        temp = temp->next;
-    }
-    return count;
-}
-Node *LinkedList::getHead()
-{
-    return head;
+    return _count;
 }
 
-void LinkedList::Display()
-{
-    if (head == NULL)
-    {
-        cout << "Linked list is empty" << endl;
+ostream& operator << (ostream& COUT, const LinkedList& list) {
+
+    Node *temp = list._head;
+    while (temp != NULL) {
+        COUT << temp->_data << ", ";
+        temp = temp->_next;
     }
-    else
-    {
-        Node *temp = head;
-        while (temp != NULL)
-        {
-            cout << temp->data << ", ";
-            temp = temp->next;
-        }
-        cout << "NULL" << endl;
-    }
+    COUT << endl;
+    return COUT;
 }
