@@ -5,9 +5,7 @@ struct Node
 	int data;
 	Node* link;
 };
-
 Node* top;
-
 void push(int data)
 {
 	Node* temp = new Node();
@@ -16,12 +14,10 @@ void push(int data)
 		//cout << "\nStack Overflow";
 		exit(1);
 	}
-
 	temp->data = data;
 	temp->link = top;
 	top = temp;
 }
-
 int isEmpty()
 {
 	return top == NULL;

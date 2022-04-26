@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 struct QueueNode {
 	int data;
 	QueueNode* next;
@@ -10,14 +9,12 @@ struct QueueNode {
 		next = NULL;
 	}
 };
-
 struct Queue {
 	QueueNode *front, *rear;
 	Queue()
 	{
 		front = rear = NULL;
 	}
-
 	void enQueue(int x)
 	{
 		QueueNode* temp = new QueueNode(x);
@@ -32,7 +29,6 @@ struct Queue {
 	{
 		if (front == NULL)
 			return;
-
 		QueueNode* temp = front;
 		front = front->next;
 		if (front == NULL)
@@ -41,7 +37,6 @@ struct Queue {
 		delete (temp);
 	}
 };
-
 int main()
 {
 	Queue q;
