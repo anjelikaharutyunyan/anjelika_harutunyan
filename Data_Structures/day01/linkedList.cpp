@@ -1,117 +1,89 @@
 #include "linkedList.h"
-#include <iostream>
-
-Node::Node() {
-
-    _next = NULL;
-}
 
 LinkedList::LinkedList() {
-
+    _count = 0;
     _head = NULL;
     _tail = NULL;
-    _count = 0;
 }
-
-LinkedList::~LinkedList() {
-
-    RemoveAll();
-}
-
 void LinkedList::Add(int value) {
+    Node *tmp = new Node;
+    tmp->data = value;
+    tmp->next = NULL;
 
-    Node *new_node = new Node;
-    new_node->_data = value;
-    new_node->_next = NULL;
-
-    if (_head == NULL) {
-        _head = new_node;
-        _tail = new_node;
+    if(_head == NULL) {
+        _head = tmp;
+        _tail = tmp;
     } else {
-        _tail->_next = new_node;
-        _tail = _tail->_next;
+        _tail->next = tmp;
+        _tail = _tail->next;
     }
     ++_count;
 }
 
 void LinkedList::AddAt(int index, int value) {
-    
-    Node *new_node = new Node();
-    new_node->_data = value;
+    Node* newNode = new Node;
+    newNode->data = value;
     if (index == 0) {
-        new_node->_next = _head;
-        _head = new_node;
+        newNode->next = _head;
+        _head = newNode;
     } else {
-        Node *temp = _head;
-        for (int i = 0; i < index - 1; i++) {
-            temp = temp->_next;
-        }
-
-        new_node->_next = temp->_next;
-        temp->_next = new_node;
+	    Node* prev = GetElementAt(index - 1);
+        newNode->next = prev->next;
+        prev->next = newNode;
     }
-    ++_count;
-}
-
-void LinkedList::RemoveLast() {
-
-    RemoveAt(Count() - 1);
+	++_count;
 }
 
 void LinkedList::RemoveAt(int index) {
+    if (Count() > 1 && index < Count()) {
+		if (index > 0) {
+        	Node* prev = GetElementAt(index - 1);
+        	Node* temp = prev->next;
+        	prev->next = temp->next;
+        	delete temp;
+        	--_count;
+		} else if (index == 0) {
+			Node* tmp = _head->next;
+			delete _head;
+			_head = tmp;
+            --_count;
+		}
+    } else {
+        _count = 0;
+        _head = NULL;
+        _tail = NULL;
+    }
+}
 
-    if (index == 0) {
-        Node* tmp = _head;
-        _head = _head->_next;
-        delete tmp; 
-    } else  {
-        Node *prev = _head;
-
-        for (int i = 0; i < index - 1; i++) {
-            prev = prev->_next;
-        }
-        Node *temp;
-        temp = prev->_next;
-        prev->_next = temp->_next;
-        delete temp;
-        
-    } 
-    --_count;
+void LinkedList::RemoveLast() {
+    RemoveAt(Count() - 1);
 }
 
 void LinkedList::RemoveAll() {
-
     while (_count > 0) {
         RemoveLast();
     }
 }
 
-int LinkedList::GetElementAt(int index) {
-
-    int count = 0;
-    Node *temp = _head;
-    while (temp != NULL) {
-        if (count == index) {
-            return temp->_data;
-        }
-        ++count;
-        temp = temp->_next;
-    }
-    return 0;
+int LinkedList::GetDataElementAt(int index) {
+    return GetElementAt(index)->data;
 }
 
 int LinkedList::Count() {
-
     return _count;
 }
 
-ostream& operator << (ostream& COUT, const LinkedList& list) {
+LinkedList::~LinkedList() {
+    RemoveAll();
+}
 
-    Node *temp = list._head;
-    while (temp != NULL) {
-        COUT << temp->_data << ", ";
-        temp = temp->_next;
+ostream& operator << (ostream &out, const LinkedList& a) {
+    Node *tmp;
+    tmp = a._head;
+    while (tmp != NULL) {
+        out << tmp->data << " ";
+        tmp = tmp->next;
     }
-    COUT << endl;
-    return COUT;
+    out << endl;
+    return out;
 }

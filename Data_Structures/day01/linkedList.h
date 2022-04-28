@@ -1,33 +1,32 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
 class Node {
     public:
-        int _data;
-        Node *_next;
-        Node();
+        int data;
+        Node *next;
 };
 
 class LinkedList {
     private:
-        Node *_head;
-        Node *_tail;
-        int _count;
+		int _count;
+        Node * _head;
+        Node * _tail;
     public:
         LinkedList();
-        ~LinkedList();
-        void Add(int);             
-        void AddAt(int, int);      
-        void RemoveLast();        
-        void RemoveAt(int);      
-        void RemoveAll();       
-        int GetElementAt(int);
-        int Count();            
-        friend ostream& operator << (ostream& COUT, const LinkedList& list);    
+		~LinkedList();
+    	void Add(int value);
+    	void AddAt(int index, int value);
+    	void RemoveAt(int index);
+		void RemoveLast();
+		void RemoveAll();
+		int GetDataElementAt(int index);
+		int Count();
+		friend ostream& operator << (ostream &out, const LinkedList&);
 };
 
 #endif
