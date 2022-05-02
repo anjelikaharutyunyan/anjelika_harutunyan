@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-void rearrange(int arr[], int n)
-{
+void rearrange(int arr[], int n){
+
 	int max_ele = arr[n - 1];
 	int min_ele = arr[0];
 	for (int i = 0; i < n; i++) {
