@@ -9,9 +9,11 @@ int main(){
     g.AddNode();
     g.AddEge(0, 4);
     g.AddEge(4, 2);
+    g.FindNeighbours(1);
+    cout << endl;
     g.PrintList();
-    g.PrintList();
-    g.RemoveNode();
-    g.PrintList();
+   // g.RemoveNode();
+    //cout << g.IsEdgeExists(0,4);
+    //g.PrintList();
     return 0;
 }
