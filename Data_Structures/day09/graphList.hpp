@@ -14,7 +14,7 @@ class Graph {
         void AddNode();
         void RemoveNode();
         bool IsEdgeExists(int,int);
-        // FindNeighbours(int);
+        void FindNeighbours(int);
         //void FindConnections(int);
         void PrintList();
         ~Graph();
@@ -34,8 +34,8 @@ void Graph::AddEge(int i, int j) {
     arr[j].Add(i);
 }
 /*void Graph::RemoveEdge(int i,int j){
-    arr[i].RemoveAt(j);
-    arr[j].RemoveAt(i);
+    arr[j].RemoveAt(j);
+    arr[i].RemoveAt(i);    
 }*/
 void Graph::AddNode() {
     ++verticeCount;
@@ -54,17 +54,24 @@ void Graph::RemoveNode(){
     }
     arr = newArr;
 }
-/*bool Graph::IsEdgeExists(int i,int j){
-    if(arr[i] == ){
-        return true;
+bool Graph::IsEdgeExists(int i, int j){
+    Node *temp = arr[i]._head;
+    while (temp) {
+        if (temp->_data == j) {
+            return true;
+        }
+        temp = temp->_next;
     }
-    else{
-        return false;
-    }
-}*/
-/*LinkedList Graph::FindNeighbours(int node){
-    return arr[node];
-}*/
+    return false;
+}
+void Graph::FindNeighbours(int i){
+    Node* temp = arr[i]._head;
+    cout <<  "The neighbours of " << i << " are: ";
+while (temp) {
+            cout <<temp->_data << " ";
+            temp = temp->_next;
+        }
+}
 void Graph::PrintList(){
     for(int i = 0; i < verticeCount; i++){
         cout << i << " --> ";
@@ -75,4 +82,5 @@ void Graph::PrintList(){
         }
         cout << endl;
     }
+    cout << endl;
 }
