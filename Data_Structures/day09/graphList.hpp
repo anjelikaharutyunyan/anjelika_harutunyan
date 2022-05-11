@@ -54,17 +54,15 @@ void Graph::RemoveNode(){
     }
     arr = newArr;
 }
-// sa head-in heti gorc chanum bayc mnacacin duzy sxaly tama
 bool Graph::IsEdgeExists(int i, int j){
-    while(arr[i]._tail != NULL){
- if(arr[i]._head->_next->_data == j){
-        return true;
-     }
-    else{
-        return false;
+    Node *temp = arr[i]._head;
+    while (temp) {
+        if (temp->_data == j) {
+            return true;
+        }
+        temp = temp->_next;
     }
-    } 
-        return false;
+    return false;
 }
 void Graph::FindNeighbours(int i){
     Node* temp = arr[i]._head;
